@@ -6,7 +6,7 @@ function preventBack(){
 	window.history.forward();
 }
 setTimeout(preventBack,0);
-//window.onunload = function(){null};
+window.onunload = function(){null};
 
 </script>
 <style>
@@ -28,8 +28,8 @@ setTimeout(preventBack,0);
 <div>
 <h3>Please Login</h3>
 <form action = "welcome.php" method = "post" >
-UserName:<input type = "text" name = "name"  /><br><br>
-Password:<input type = "password" name = "password" /><br><br>
+UserName:<input type = "text" name = "name" required /><br><br>
+Password:<input type = "password" name = "password" required /><br><br>
 <input type = "submit" name ="login" value = "login" />
 </div>
 </div>
