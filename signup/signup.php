@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script  type = "text/javascript">
+function preventBack(){
+	window.history.forward();
+}
+setTimeout(preventBack,0);
+//window.onunload = function(){null};
+
+</script>
 <style>
 .form{
 	display:flex;
@@ -22,7 +30,7 @@
 <form action = "welcome.php" method = "post" >
 UserName:<input type = "text" name = "name"  /><br><br>
 Password:<input type = "password" name = "password" /><br><br>
-<input type = "submit" name ="login" value = "login">
+<input type = "submit" name ="login" value = "login" />
 </div>
 </div>
 

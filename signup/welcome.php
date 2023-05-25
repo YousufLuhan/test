@@ -1,20 +1,30 @@
 <?php
+
 $name = "Admin"; 
 $password = "526551";
-
-
+	
+	
 session_start();
 
-if(isset($_SESSION["name"])){
-	echo "<h1>Welcome ".$_SESSION["name"].", This is Dashboard</h1>";
-	echo "<a href = 'product.php'><input type = 'button' value = 'Another Page'><br>";
-	echo "<br><a href = 'logout.php'><input type= 'button' value='logout' /></a>";
+     if(isset($_SESSION["name"]) && isset($_SESSION["block"])){
+		 header("Location:http://localhost/PHP-program/signup/deshboard.php",true,301);
+		 exit();
+	
 }else{
-	if($_POST["name"] == $name && $_POST["password"] == $password){
+		if($_POST["name"] == $name && $_POST["password"] == $password){
 		$_SESSION["name"] = $name;
-		echo "<script>location.href = 'welcome.php'</script>";
+		$_SESSION["block"] = true;
+		header("Location:http://localhost/PHP-program/signup/welcome.php");
+         exit();
 	}else{
 		echo "<script>location.href = 'error.php'</script>";
 	}
+
+	
 }
+
+
+    
+
+
 ?>
