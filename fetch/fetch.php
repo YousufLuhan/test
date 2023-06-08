@@ -32,8 +32,7 @@
             };
 
             //connect databasetable;
-            $sql = "select students.StudentID,students.Name,students.Age,students.Gender,student_details.Address,student_details.Phone from students inner join student_details on students.Details = student_details.StudentID";
-            
+            $sql = "select s.StudentID,s.Name,s.Age,s.Gender,sd.Phone,sd.Address from student_details sd inner join students s on sd.StudentID = s.StudentID";         
             $result = $conn->query($sql);
 
             //fetch each row;
@@ -47,18 +46,6 @@
                 <td>$row[Phone]</td>
             </tr>";
             }
-
-
-            
-            
-         
-            
-           
-            
-            
-            
-            
-            
             ?>
         </tbody>
 

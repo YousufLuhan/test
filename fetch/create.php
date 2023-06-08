@@ -18,7 +18,7 @@
             Age: <input type="text" name="Age" required><br><br>
             Gender: <input type="radio" name="Gender" required value="Male">Male
             <input type="radio" name="Gender" required value="Female">Female<br><br>
-            Mobile: <input type="number" name="Mobile" required><br><br>
+            Phone: <input type="number" name="Phone" required><br><br>
             Address: <input type="text" name="Address" required><br><br>
             <input type="submit" name="submit"><span> </span><a href="fetch.php" role="button">Cancel</a>
         </form>
