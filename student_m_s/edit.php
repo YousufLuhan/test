@@ -28,32 +28,25 @@ if($_SERVER["REQUEST_METHOD"]=== "GET"){
     $DoB = $_POST["DOB"];
     $groups = $_POST["groups"];
     $phone = $_POST["phonenumber"];
+    $newImage = $_FILES["new"]["name"];
+    $oldImage = $_POST["old"];
 
-    
-    //recent working code
-    // $studentimage = $_FILES["studentimage"];
-    // $imageName = $studentimage["name"];
-    // $imageTmp = $studentimage["tmp_name"];
-    // $imageError = $studentimage["error"];
-    // $imageSep = explode(".",$imageName);
-    // $imageExt = strtolower(end($imageSep));
-    // $extension = array("png","jpg","jpeg");
-    // $id = $_GET["id"];
+    if($newImage != ""){
+        $actualImage = "images/".$newImage;
+        move_uploaded_file($_FILES["new"]["tmp_name"],$actualImage);
+        unlink($oldImage);
 
-    // if(in_array($imageExt,$extension)){
-    //     $imageUpload = "images/".$imageName;
-    //     move_uploaded_file($imageTmp,$imageUpload);
-         $id = $_GET["id"];
-        $sql = "UPDATE student_details SET Name = '$name',FathersName = '$fname',MothersName = '$mname', Gender = '$gender',DoB ='$DoB',Section = '$groups',Phone = '$phone' WHERE  ID = $id";
-         $result = $connection->query($sql);  
-         echo "Update successfully";  
-         header("location:list.php");
-         exit();
-//          header("location:list.php");
-//     }else{
-//         $dis = "Your file extension is ".strtoupper($imageExt) ." that does not exist";
-//     }    
-// }
+    }else{
+        $actualImage = $oldImage;
+    }
+
+    $id = $_GET["id"];
+    $sql = "UPDATE student_details SET Image = '$actualImage',
+    Name = '$name',FathersName = '$fname',MothersName = '$mname', Gender = '$gender',DoB ='$DoB',Section = '$groups',Phone = '$phone' WHERE  ID = $id";
+     $result = $connection->query($sql);  
+     echo "Update successfully";  
+     header("location:list.php");
+     exit();
 }
 ?>
 
@@ -145,12 +138,12 @@ if($_SERVER["REQUEST_METHOD"]=== "GET"){
             <form action="" method="post" enctype="multipart/form-data">
                 <p align="center"><img src="<?php echo $image?>" alt="" width="100px" height="100px"></p>
                 <div class="form-item">
-                    <!-- <label for="fullname">Student Image:</label> -->
-                    <input type="hidden" name="new" id="studentimage">
-                    <!-- <input type="file" name="studentimage" id="studentimage"">
-                    <p>(less than 5 Mb)</p>  -->
+                    <label for="fullname">Student Image:</label>
+                    <input type="hidden" name="old" id="studentimage" value="<?php echo $image?>">
+                    <input type="file" name="new" id="studentimage"">
+                    <p>(less than 5 Mb)</p> 
                 </div>
-                <div class="form-item">
+                <div class=" form-item">
                     <label for="fullname">Student Name:</label>
                     <input type="text" name="fullname" id="fullname" placeholder="Full Name" value="<?php echo $name?>"
                         required>

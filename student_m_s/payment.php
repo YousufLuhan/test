@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=== "GET"){
     $sql = "SELECT * FROM student_details WHERE ID = $id";
     $result = $connection->query($sql);
     $row = $result->fetch_assoc();
-    $Name = $row["Name"];
+    $id = $row["ID"];
     $image = $row["Image"];
 }
 ?>
@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=== "GET"){
 <body>
     <form action="report.php" method="post" align="center">
         <p><img style='width:300px;height:300px' src="<?php echo $image?>"></p>
-        Name:<input type="text" name="name" value="<?php echo $Name?>"><br><br>
+        ID:<input type="text" name="id" value="<?php echo $id?>"><br><br>
         Amount:<input type="number" placeholder="$" name="amount" required><br><br>
         <label for="department">Purpose:</label>
         <select name="total" id="department">

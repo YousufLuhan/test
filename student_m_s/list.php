@@ -36,7 +36,7 @@ if(isset($_POST["submit"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Studen List</title>
 </head>
 
 <body>
@@ -75,7 +75,9 @@ if(isset($_POST["submit"])){
                 <td>$row[Phone]</td>
                 <td>$row[Image]</td>
                 <td>
-                   <a href ='edit.php?id=$row[ID]'>Edit</a><span> <a href ='delete.php?id=$row[ID]'>Delete</a></span>
+                <span><a href ='profile.php?id=$row[ID]'>Profile</a><span>
+                <span><a href ='edit.php?id=$row[ID]'>Edit</a><span> 
+                <span><a href ='delete.php?id=$row[ID]'>Delete</a></span>
                 </td>
             </tr>
                 ";

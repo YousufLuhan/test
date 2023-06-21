@@ -7,7 +7,7 @@ if(isset($_SESSION["Email"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Panel</title>
     <style>
     *{
         margin:0;
@@ -44,7 +44,7 @@ if(isset($_SESSION["Email"])){
     <a href = "form.php">StudentForm<a/>
     <a href = "list.php">StudentList<a/>
     <a href = "search.php">Payment<a/>
-    <a href = "report.php">Report<a/>
+    <a href = "today.php">Report<a/>
     <a href = "logout.php" id = "logout">Logout<a/>
     </div>
     </div>
