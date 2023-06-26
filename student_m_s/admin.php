@@ -44,7 +44,7 @@ if(isset($_SESSION["Email"])){
     <a href = "form.php">StudentForm<a/>
     <a href = "list.php">StudentList<a/>
     <a href = "search.php">Payment<a/>
-    <a href = "today.php">Report<a/>
+    <a href = "today.php?id=report">Report<a/>
     <a href = "logout.php" id = "logout">Logout<a/>
     </div>
     </div>
